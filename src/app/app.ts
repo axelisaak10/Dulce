@@ -11,6 +11,7 @@ import {
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { environment } from '../environments/environment';
 
 interface Reason { text: string; }
 interface Photo { src: string; label: string; }
@@ -49,8 +50,8 @@ export class App implements OnDestroy {
   lightboxSrc = '';
   currentPhotoIndex = 0;
 
-  // URL del backend Next.js — cambiar si el backend corre en otro puerto
-  private readonly API = 'http://localhost:3000/api';
+  // URL del backend — en dev: localhost:3000, en prod: Vercel (via environment)
+  private readonly API = environment.apiUrl;
 
   // ─── La fecha se carga desde el backend (.env.local > LOVE_START_DATE) ───
   startDate = new Date('2025-03-15T00:00:00');
