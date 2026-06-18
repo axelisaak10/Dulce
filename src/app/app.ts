@@ -54,7 +54,8 @@ export class App implements OnDestroy {
   private readonly API = environment.apiUrl;
 
   // ─── La fecha se carga desde el backend (.env.local > LOVE_START_DATE) ───
-  startDate = new Date('2025-03-15T00:00:00');
+  startDate = new Date('2026-02-19T00:00:00');
+
 
   currentDate = new Date().toLocaleDateString('es-ES', {
     year: 'numeric', month: 'long', day: 'numeric',
