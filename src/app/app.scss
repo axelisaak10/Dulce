@@ -999,23 +999,77 @@ $gradient-hero: linear-gradient(160deg, #1f0307 0%, #3d050d 50%, #630c1a 100%);
 }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .hero-section {
     flex-direction: column;
-    padding: 3rem 5%; text-align: center;
+    padding: 6rem 5% 3rem; text-align: center;
   }
-  .hero-content { max-width: 100%; }
-  .hero-tree-wrap { max-width: 85%; }
-  .timer-display { justify-content: center; }
-  .timer-unit { min-width: 50px; }
-  .timer-number { font-size: 1.4rem; }
-  .yt-input-row, .album-input-row { flex-direction: column; border-radius: 16px; padding: .8rem; }
-  .yt-input, .album-input { padding: .4rem 0; width: 100%; }
+  .hero-content { max-width: 100%; margin-bottom: 2rem; }
+  .hero-tree-wrap { max-width: 90%; }
+  .timer-display { justify-content: center; flex-wrap: wrap; }
+  .timer-unit { min-width: 55px; }
+  .timer-number { font-size: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.8rem; }
+  
+  /* Arreglo de los inputs apilados en móvil */
+  .yt-input-row, .album-input-row { 
+    flex-direction: column; 
+    border-radius: 16px; 
+    padding: 1rem; 
+    gap: .5rem;
+  }
+  .yt-input, .album-input { padding: .4rem 0; width: 100%; text-align: center; }
+  .album-input + .album-input {
+    border-left: none !important;
+    padding-left: 0 !important;
+    border-top: 1px solid rgba(255, 107, 157, 0.25) !important;
+    padding-top: .8rem !important;
+    margin-top: .2rem;
+  }
+  
+  .btn-love { width: 100%; justify-content: center; margin-top: .5rem; }
+
+  /* Ajuste de grids para tablets y móviles grandes */
   .yt-grid { grid-template-columns: 1fr; }
-  .lightbox-nav { left: -20px; right: -20px; }
+  .album-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+  .notes-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+  .reasons-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  
+  /* Reducir paddings generales */
+  .message-section, .album-section, .yt-section, .reasons-section, .notes-section, .letter-section {
+    padding: 4rem 5%;
+  }
+
+  .message-card { padding: 2rem 1.5rem; }
+  .quote-mark { font-size: 3.5rem; }
+  .message-text { font-size: 1.05rem; line-height: 1.7; }
+  
+  .notes-composer { padding: 1.5rem; }
+
+  .lightbox-nav { left: -10px; right: -10px; }
+  .lightbox-nav button { width: 35px; height: 35px; font-size: 1.2rem; }
+  .lightbox-close { top: -45px; right: 10px; }
 }
 
 @media (max-width: 480px) {
-  .album-grid, .notes-grid { grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+  .hero-title { font-size: 2.4rem; }
+  .section-title { font-size: 2rem; }
+  
+  .timer-display { gap: .3rem; }
+  .timer-unit { padding: .5rem .6rem; min-width: 45px; }
+  .timer-number { font-size: 1.2rem; }
+  .timer-text { font-size: .55rem; }
+  
+  /* Grids en móvil pequeño (1 sola columna para mejor lectura) */
+  .album-grid { grid-template-columns: repeat(2, 1fr); gap: .8rem; } /* Fotos sí en 2 columnas */
+  .notes-grid { grid-template-columns: 1fr; gap: 1rem; }
   .reasons-grid { grid-template-columns: 1fr; }
+  
+  .album-card:nth-child(5n) { grid-column: span 1; grid-row: span 1; } /* Quitar span en móvil */
+  
+  .letter-body { padding: 1.5rem; }
+  .letter-salute, .letter-closing { font-size: 1.1rem !important; }
 }
